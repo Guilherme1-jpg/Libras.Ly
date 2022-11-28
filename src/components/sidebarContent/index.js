@@ -148,13 +148,17 @@ const SidebarContent = ({ children }) => {
                     >
                       <StarBorder />
                     </ListItemIcon>
-                    <ListItemText primary="Lição 2" />
+                    <Link href="/dashboard/Lesson2">
+                      <ListItemText primary="Lição 2" />
+                    </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                    <ListItemText primary="Lição 3" />
+                    <Link href="/dashboard/Lesson3">
+                      <ListItemText primary="Lição 3" />
+                    </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ pl: 4 }}>
                     <ListItemIcon>
