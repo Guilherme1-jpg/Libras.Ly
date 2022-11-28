@@ -1,0 +1,61 @@
+import react, { useEffect, useState } from 'react'
+import * as C from './styled'
+import VLibras from '@djpfs/react-vlibras'
+import Waves from '../../assets/wave.png'
+import { Box, Container, Typography } from '@mui/material'
+
+const Footer = () => {
+  return (
+    <>
+      <VLibras />
+
+      {/* <C.FooterArea></C.FooterArea> */}
+
+      <Box component="footer" maxWidth="sm">
+        <Container maxWidth="sm" minHeight="100vh" flexDirection="column">
+          <C.FooterArea>Todos os direitos reservados</C.FooterArea>
+        </Container>
+
+        <img src={Waves} width="1260px" />
+      </Box>
+    </>
+  )
+}
+
+export default Footer
+
+//
+
+import Styled from 'styled-components'
+
+export const FooterArea = Styled.footer`
+  position: absolute;
+  justify-content: flex-end;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  
+  p {
+    font-size: 32px;
+    margin-top: 300px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  img{
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+    p {
+      margin: 0;
+      flex-wrap: wrap;
+      font-size: 16px;
+    }
+  }
+`
