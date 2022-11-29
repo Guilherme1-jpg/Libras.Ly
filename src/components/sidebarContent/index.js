@@ -3,6 +3,7 @@ import { useState } from 'react'
 import * as C from './styled'
 import StarOutlineIcon from '@mui/icons-material/StarOutline'
 import { Avatar, Divider, Drawer, Icon, useTheme } from '@mui/material'
+import VLibras from '@djpfs/react-vlibras'
 
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import ListSubheader from '@mui/material/ListSubheader'
@@ -20,6 +21,7 @@ import StarBorder from '@mui/icons-material/StarBorder'
 import { Box } from '@mui/system'
 import Link from '@mui/material/Link'
 import PageConteudo from '../../pages/pageconteudo'
+import AvatarFig from '../../components/assets/avatar.png'
 
 const SidebarContent = ({ children }) => {
   const theme = useTheme()
@@ -59,6 +61,7 @@ const SidebarContent = ({ children }) => {
   }
   return (
     <>
+      <VLibras />
       <Drawer variant="permanent">
         <Box
           width={theme.spacing(28)}
@@ -69,15 +72,22 @@ const SidebarContent = ({ children }) => {
         >
           <Box
             width="100%"
-            height={theme.spacing(20)}
+            height={theme.spacing(30)}
             display="flex"
             alignItems="center"
             justifyContent="center"
+            flexDirection="column"
           >
             <Avatar
-              sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
-              src="https://scontent.fbau3-1.fna.fbcdn.net/v/t39.30808-6/265953923_4801362313261067_1013681395294042164_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE_RSqk_xI1haMBF1IQa8qfgAUklJKoo4qABSSUkqijiqOxaWcNk8zcuC-fKRGCHiNcv7TrFJiRA9qbUU0BPmF0&_nc_ohc=2qKLIOCDfdMAX_1ck8A&_nc_ht=scontent.fbau3-1.fna&oh=00_AfAPym8z122HK8qrftPAV_aKHbLb2TO7YImFcZ17LhqjDw&oe=6361FD35"
+              sx={{ height: theme.spacing(20), width: theme.spacing(20) }}
+              src={AvatarFig}
             />
+            <Link
+              href="/dashboard"
+              style={{ textDecoration: 'none', color: '#4C5F6B' }}
+            >
+              Bem-Vindo
+            </Link>
           </Box>
 
           <Divider />
@@ -135,7 +145,10 @@ const SidebarContent = ({ children }) => {
                     >
                       <StarBorder />
                     </ListItemIcon>
-                    <Link href="/dashboard/conteudo">
+                    <Link
+                      href="/dashboard/conteudo"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
                       <ListItemText primary="Lição 1" />
                     </Link>
                   </ListItemButton>
@@ -148,7 +161,10 @@ const SidebarContent = ({ children }) => {
                     >
                       <StarBorder />
                     </ListItemIcon>
-                    <Link href="/dashboard/Lesson2">
+                    <Link
+                      href="/dashboard/Lesson2"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
                       <ListItemText primary="Lição 2" />
                     </Link>
                   </ListItemButton>
@@ -156,15 +172,12 @@ const SidebarContent = ({ children }) => {
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                    <Link href="/dashboard/Lesson3">
+                    <Link
+                      href="/dashboard/Lesson3"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
                       <ListItemText primary="Lição 3" />
                     </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Lição 4" />
                   </ListItemButton>
                 </List>
               </Collapse>
@@ -182,7 +195,44 @@ const SidebarContent = ({ children }) => {
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                    <ListItemText primary="Starred" />
+                    <Link
+                      href="/dashboard/Lesson4"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
+                      <ListItemText primary="Lição 1" />
+                    </Link>
+                  </ListItemButton>
+                </List>
+              </Collapse>
+
+              <Collapse in={open2} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <Link
+                      href="/dashboard/Lesson5"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
+                      <ListItemText primary="Lição 2" />
+                    </Link>
+                  </ListItemButton>
+                </List>
+              </Collapse>
+
+              <Collapse in={open2} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <Link
+                      href="/dashboard/Lesson6"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
+                      <ListItemText primary="Lição 3" />
+                    </Link>
                   </ListItemButton>
                 </List>
               </Collapse>
@@ -200,43 +250,7 @@ const SidebarContent = ({ children }) => {
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-
-              <ListItemButton onClick={handleClick4}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText primary="Modulo 4" />
-                {open4 ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={open4} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-
-              <ListItemButton onClick={handleClick5}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText primary="Modulo 5" />
-                {open5 ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={open5} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
+                    <ListItemText primary="Lição 1" />
                   </ListItemButton>
                 </List>
               </Collapse>

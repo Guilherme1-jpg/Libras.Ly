@@ -20,6 +20,7 @@ import Exercicio2 from '../../../components/assets/exercicio2.png'
 import Exercicio3 from '../../../components/assets/exercicio3.png'
 import Exercicio4 from '../../../components/assets/exercicio4.png'
 import Exercicio5 from '../../../components/assets/exercicio5.png'
+import QuizImage from '../../../components/assets/quizImage.png'
 
 const Lesson3 = () => {
   const [showResults, setShowResults] = useState(false)
@@ -77,6 +78,138 @@ const Lesson3 = () => {
         { id: 3, text: 'Capo', isCorrect: false },
       ],
     },
+
+    {
+      text: 'Selecione a maneira correta de formar a frase em libras,frase: Meu amigo viajou para São Paulo',
+
+      options: [
+        {
+          id: 0,
+          text: 'Homem meu amigo viajar cidade São Paulo',
+          isCorrect: false,
+        },
+        {
+          id: 1,
+          text: 'Amigo homem meu Viajar São Paulo cidade .',
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          text: 'Amigo homem meu cidade São Paulo Viajar.',
+          isCorrect: true,
+        },
+        {
+          id: 3,
+          text: 'Viajar cidade São Paulo meu amigo homem',
+          isCorrect: false,
+        },
+      ],
+    },
+
+    {
+      text: 'Selecione a maneira correta de formar a frase em libras,frase: A professora comprou um livro.',
+
+      options: [
+        {
+          id: 0,
+          text: 'Professora mulher livro comprar',
+          isCorrect: true,
+        },
+        {
+          id: 1,
+          text: 'Mulher professora livro comprar .',
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          text: 'Livro comprar mulher professora',
+          isCorrect: false,
+        },
+        {
+          id: 3,
+          text: 'Comprar livro mulher professora',
+          isCorrect: false,
+        },
+      ],
+    },
+
+    {
+      text: 'Selecione a maneira correta de formar a frase em libras,frase: Hoje vou à casa da minha mãe.',
+      options: [
+        {
+          id: 0,
+          text: 'Hoje casa mulher benção ir',
+          isCorrect: true,
+        },
+        {
+          id: 1,
+          text: 'Hoje mulher casa benção ir',
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          text: 'Mulher hoje casa benção ir',
+          isCorrect: false,
+        },
+        {
+          id: 3,
+          text: 'Hoje casa benção casa ir',
+          isCorrect: false,
+        },
+      ],
+    },
+
+    {
+      text: 'Selecione a maneira correta de formar a frase em libras,frase: A criança tem um cachorro.',
+      options: [
+        {
+          id: 0,
+          text: 'Cachorro criança ter',
+          isCorrect: false,
+        },
+        {
+          id: 1,
+          text: 'Ter cachorro criança',
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          text: 'Criança cachorro ter.',
+          isCorrect: true,
+        },
+        {
+          id: 3,
+          text: 'Cachorro ter criança',
+          isCorrect: false,
+        },
+      ],
+    },
+
+    {
+      text: 'Selecione a maneira correta de formar a frase em libras, frase:O gato pegou o rato.',
+      options: [
+        {
+          id: 0,
+          text: 'Pegar rato gato',
+          isCorrect: false,
+        },
+        {
+          id: 1,
+          text: 'Rato gato pegar',
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          text: 'Pegar rato gato.',
+          isCorrect: false,
+        },
+        {
+          id: 3,
+          text: 'Gato rato pegar',
+          isCorrect: true,
+        },
+      ],
+    },
   ]
 
   const optionClicked = (isCorrect) => {
@@ -106,8 +239,9 @@ const Lesson3 = () => {
         marginLeft="240px"
         marginTop="20px"
         flexDirection="column"
+        marginBottom="160px"
       >
-        <Typography>Vamos a Pratica!</Typography>
+        <Typography variant="h2">Vamos a Pratica!</Typography>
         <h1>Escolha a resposta correta</h1>
 
         {/* 2. Current Score  */}
@@ -138,7 +272,7 @@ const Lesson3 = () => {
             </div>
 
             {/* List of possible answers  */}
-            <Box display="flex" justifyContent="center">
+            <Box display="flex" justifyContent="center" padding="20px">
               <List>
                 {questions[currentQuestion].options.map((option) => {
                   return (

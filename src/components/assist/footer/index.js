@@ -1,14 +1,12 @@
 import react, { useEffect, useState } from 'react'
 import * as C from './styled'
-import VLibras from '@djpfs/react-vlibras'
+
 import Waves from '../../assets/wave.png'
 import { Box, Container, Typography } from '@mui/material'
 
 const Footer = () => {
   return (
     <>
-      <VLibras />
-
       <footer>
         <C.FooterArea>
           <C.FooterContent>
