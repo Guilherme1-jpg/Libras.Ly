@@ -250,7 +250,13 @@ const SidebarContent = ({ children }) => {
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                    <ListItemText primary="Lição 1" />
+
+                    <Link
+                      href="/dashboard/lesson7"
+                      style={{ textDecoration: 'none', color: '#000' }}
+                    >
+                      <ListItemText primary="Lição 1" />
+                    </Link>
                   </ListItemButton>
                 </List>
               </Collapse>

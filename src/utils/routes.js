@@ -10,6 +10,7 @@ import Lesson3 from '../pages/lessons/lesson3'
 import Lesson4 from '../pages/lessons/lesson4'
 import Lesson5 from '../pages/lessons/lesson5'
 import Lesson6 from '../pages/lessons/lesson6'
+import Lesson7 from '../pages/lessons/lesson7'
 
 export default function UserRoute() {
   return (
@@ -26,6 +27,7 @@ export default function UserRoute() {
         <Route path="/dashboard/Lesson4" element={<Lesson4 />} />
         <Route path="/dashboard/Lesson5" element={<Lesson5 />} />
         <Route path="/dashboard/Lesson6" element={<Lesson6 />} />
+        <Route path="/dashboard/Lesson7" element={<Lesson7 />} />
         <Route />
       </Routes>
     </BrowserRouter>
