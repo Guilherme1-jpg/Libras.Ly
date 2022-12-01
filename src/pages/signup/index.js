@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
-import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
@@ -13,6 +12,8 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import validator from 'validator'
+import { Link, useNavigate } from 'react-router-dom'
+import useAuth from '../../utils/hooks/useAuth'
 
 function Copyright(props) {
   return (
@@ -23,9 +24,7 @@ function Copyright(props) {
       {...props}
     >
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Todos os Direitos reservados
-      </Link>{' '}
+      Todos os Direitos reservados
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -35,36 +34,34 @@ function Copyright(props) {
 const theme = createTheme()
 
 const SignUp = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
-  }
+  const [email, setEmail] = useState('')
+  const [emailConf, setEmailConf] = useState('')
+  const [senha, setSenha] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
-  const handleAlert = () => {
-    window.alert('Cadastro feito!')
-  }
+  const { signup } = useAuth()
 
-  const [isError, setIsError] = useState('')
-
-  const validation = (value) => {
-    if (
-      validator.isStrongPassword(value, {
-        minLength: 6,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-        minSymbols: 1,
-      })
-    ) {
-      setIsError('Senha perfeita')
-    } else {
-      setIsError('Precisa melhorar')
+  const handleSignup = () => {
+    if (!email | !emailConf | !senha) {
+      setError('Preencha todos os campos')
+      return
+    } else if (email !== emailConf) {
+      setError('Os e-mails não são iguais')
+      return
     }
+
+    const res = signup(email, senha)
+
+    if (res) {
+      setError(res)
+      return
+    }
+
+    alert('Usuário cadatrado com sucesso!')
+    navigate('/')
   }
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -84,23 +81,16 @@ const SignUp = () => {
             <Typography component="h1" variant="h5">
               Fazer Cadastro
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 3 }}
-            >
+            <Box component="form" noValidate sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
-                    autoComplete="given-name"
-                    name="firstName"
                     required
                     fullWidth
-                    id="firstName"
-                    size="large"
-                    label="Nome Completo"
-                    autoFocus
+                    label="Digite seu Email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => [setEmail(e.target.value), setError('')]}
                   />
                 </Grid>
 
@@ -108,10 +98,13 @@ const SignUp = () => {
                   <TextField
                     required
                     fullWidth
-                    id="email"
-                    label="Digite seu Email"
-                    name="email"
+                    label="confirme seu Email"
                     autoComplete="email"
+                    value={emailConf}
+                    onChange={(e) => [
+                      setEmailConf(e.target.value),
+                      setError(''),
+                    ]}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -122,10 +115,9 @@ const SignUp = () => {
                     label="Digite uma senha"
                     type="password"
                     id="password"
-                    autoComplete="new-password"
-                    onChange={(e) => validation(e.target.value)}
+                    value={senha}
+                    onChange={(e) => [setSenha(e.target.value), setError('')]}
                   />
-                  <span>{isError}</span>
                 </Grid>
                 <Grid item xs={12}>
                   <FormControlLabel
@@ -141,14 +133,13 @@ const SignUp = () => {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                href="/signin"
-                onClick={handleAlert}
+                onClick={handleSignup}
               >
                 Fazer Cadastro
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="/signin" variant="body2">
+                  <Link to="/signin" variant="body2">
                     Já possui conta? Clique aqui !
                   </Link>
                 </Grid>

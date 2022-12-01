@@ -241,7 +241,10 @@ const Lesson3 = () => {
         flexDirection="column"
         marginBottom="160px"
       >
-        <Typography variant="h2">Vamos a Pratica!</Typography>
+        <Typography variant="h2" color="primary">
+          Vamos a Pratica!
+        </Typography>
+        <Divider />
         <h1>Escolha a resposta correta</h1>
 
         {/* 2. Current Score  */}
@@ -289,8 +292,6 @@ const Lesson3 = () => {
           </Box>
         )}
       </Box>
-
-      <Footer />
     </>
   )
 }

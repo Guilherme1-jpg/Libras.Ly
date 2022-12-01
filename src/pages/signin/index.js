@@ -14,8 +14,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import SendIcon from '@mui/icons-material/Send'
-
+import useAuth from '../../utils/hooks/useAuth'
 import HandsPeoples from '../../components/assets/handspeoples.jpg'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -26,9 +27,7 @@ function Copyright(props) {
       {...props}
     >
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Todos os direitos reservados
-      </Link>{' '}
+      Todos os direitos reservados
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -37,13 +36,27 @@ function Copyright(props) {
 
 const theme = createTheme()
 const Signin = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
+  const { signin } = useAuth()
+  const navigate = useNavigate()
+
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [error, setError] = useState('')
+
+  const handleLogin = () => {
+    if (!email | !senha) {
+      setError('Preencha todos os campos')
+      return
+    }
+
+    const res = signin(email, senha)
+
+    if (res) {
+      setError(res)
+      return
+    }
+
+    navigate('/dashboard')
   }
 
   return (
@@ -82,12 +95,7 @@ const Signin = () => {
             <Typography component="h1" variant="h5">
               Fazer login
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
-            >
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -96,6 +104,8 @@ const Signin = () => {
                 label="Email"
                 name="email"
                 autoComplete="email"
+                value={email}
+                onChange={(e) => [setEmail(e.target.value), setError('')]}
                 autoFocus
               />
               <TextField
@@ -105,35 +115,22 @@ const Signin = () => {
                 name="password"
                 label="Senha"
                 type="password"
+                value={senha}
+                onChange={(e) => [setSenha(e.target.value), setError('')]}
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Lembrar senha"
-              />
+
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 10, mb: 2 }}
-                href="/dashboard"
+                onClick={handleLogin}
                 endIcon={<SendIcon />}
               >
                 Fazer Login
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Esqueci a senha
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/signup" variant="body2">
-                    {'não tem conta? clique aqui'}
-                  </Link>
-                </Grid>
-              </Grid>
+
               <Copyright sx={{ mt: 40 }} />
             </Box>
           </Box>

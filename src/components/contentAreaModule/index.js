@@ -100,32 +100,32 @@ const ContentAreaContent = () => {
             Primeiro clique no ícone ao lado, para carrregar o Govinho.
           </Typography>
           <Grid item marginLeft={4}>
-            <video controls autoplay loop width={280}>
+            <video controls autoPlay loop width={280}>
               <source src={AbrirGov} type="video/webm" />
             </video>
           </Grid>
         </Grid>
 
-        <Grid item xs={2}>
+        <Grid item xs={6} marginLeft={30}>
           <Typography variant="subtitle2">
             Agora que foi carregado, você pode selecionar o texto que
             automaticamente ele começará a fazer a tradução
           </Typography>
           <Grid item marginLeft={10}>
-            <video controls autoplay loop width={600}>
+            <video controls autoPlay loop width={600}>
               <source src={traduGov} type="video/webm" />
             </video>
           </Grid>
         </Grid>
 
-        <Grid item xs={2}>
+        <Grid item xs={2} marginLeft={30}>
           <Typography variant="subtitle2">
             Caso você queira saber alguma palavras que não está no nosso
             conteudo, basta clicar na opção de dicionário e pesquisar a palavra
             de seu interesse.
           </Typography>
           <Grid item marginLeft={40}>
-            <video controls autoplay loop width={280}>
+            <video controls autoPlay loop width={280}>
               <source src={dicioGov} type="video/webm" />
             </video>
           </Grid>

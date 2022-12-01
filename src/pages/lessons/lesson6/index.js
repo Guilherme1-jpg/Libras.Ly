@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Divider } from '@mui/material'
 import React from 'react'
 import SidebarContent from '../../../components/sidebarContent'
 import Card from '@mui/material/Card'
@@ -23,6 +23,7 @@ const Lesson6 = () => {
       >
         <Typography variant="h4">Meses</Typography>
       </Box>
+      <Divider />
       <Box
         height="100%"
         marginLeft="240px"

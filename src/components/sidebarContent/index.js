@@ -149,7 +149,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/conteudo"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 1" />
+                      <ListItemText primary="Alfabeto" />
                     </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ pl: 4 }}>
@@ -165,7 +165,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/Lesson2"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 2" />
+                      <ListItemText primary="Linguística" />
                     </Link>
                   </ListItemButton>
                   <ListItemButton sx={{ pl: 4 }}>
@@ -176,7 +176,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/Lesson3"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 3" />
+                      <ListItemText primary="Exercícios" />
                     </Link>
                   </ListItemButton>
                 </List>
@@ -199,7 +199,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/Lesson4"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 1" />
+                      <ListItemText primary="Numerais" />
                     </Link>
                   </ListItemButton>
                 </List>
@@ -215,7 +215,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/Lesson5"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 2" />
+                      <ListItemText primary="Horas" />
                     </Link>
                   </ListItemButton>
                 </List>
@@ -231,7 +231,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/Lesson6"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 3" />
+                      <ListItemText primary="Meses" />
                     </Link>
                   </ListItemButton>
                 </List>
@@ -255,7 +255,7 @@ const SidebarContent = ({ children }) => {
                       href="/dashboard/lesson7"
                       style={{ textDecoration: 'none', color: '#000' }}
                     >
-                      <ListItemText primary="Lição 1" />
+                      <ListItemText primary="Exercícios" />
                     </Link>
                   </ListItemButton>
                 </List>

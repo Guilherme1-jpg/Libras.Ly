@@ -11,6 +11,13 @@ import Lesson4 from '../pages/lessons/lesson4'
 import Lesson5 from '../pages/lessons/lesson5'
 import Lesson6 from '../pages/lessons/lesson6'
 import Lesson7 from '../pages/lessons/lesson7'
+import useAuth from './hooks/useAuth'
+
+const Private = ({ Item }) => {
+  const { signed } = useAuth()
+
+  return signed > 0 ? <Item /> : <Signin />
+}
 
 export default function UserRoute() {
   return (
@@ -18,7 +25,7 @@ export default function UserRoute() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/librasview" element={<LibrasView />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Private Item={Dashboard} />} />
         <Route path="/dashboard/:slug" element={<PageConteudo />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<SignUp />} />

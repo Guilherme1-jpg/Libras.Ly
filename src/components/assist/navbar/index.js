@@ -17,13 +17,6 @@ const Navbar = () => {
           <span />
         </C.Bars>
 
-        <C.NavMenu isOpen={isOpen}>
-          <C.NavToLink to="/">Inicio</C.NavToLink>
-
-          <C.NavToLink to="/">Quem Somos</C.NavToLink>
-
-          <C.NavToLink to="/">Quero Aprender</C.NavToLink>
-        </C.NavMenu>
         <C.NavIsLoggin>
           <C.NavBtn to="/signIn">Entrar</C.NavBtn>
 

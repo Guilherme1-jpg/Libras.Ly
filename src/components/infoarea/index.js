@@ -31,11 +31,9 @@ const InfoAreaScreen = () => {
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <C.BorderImage>
-            <Grid item xs={12} sm={6}>
-              <img src={classImage} width="400px" height="300px" />
-            </Grid>
-          </C.BorderImage>
+          <Grid item xs={12} sm={6}>
+            <img src={classImage} width="400px" height="300px" />
+          </Grid>
         </Box>
       </Box>
     </>
